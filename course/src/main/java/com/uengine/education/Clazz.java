@@ -76,4 +76,18 @@ public class Clazz {
     }
 
 
+    @PostPersist
+    public void addCalendar(){
+
+        CalendarService calendarService = Application.getApplicationContext().getBean(CalendarService.class);
+
+        Schedule schedule = new Schedule();
+        schedule.setInstructorName(getInstructorName());
+        schedule.setDate(getStartDate());
+        schedule.setDescription(getTitle());
+
+        calendarService.addCalendar(schedule);
+    }
+
+
 }
