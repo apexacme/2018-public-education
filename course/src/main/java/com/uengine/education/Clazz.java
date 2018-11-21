@@ -1,5 +1,10 @@
 package com.uengine.education;
 
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.util.MimeTypeUtils;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -77,16 +82,36 @@ public class Clazz {
 
 
     @PostPersist
-    public void addCalendar(){
+    public void publishEvent(){
 
-        CalendarService calendarService = Application.getApplicationContext().getBean(CalendarService.class);
+        // version 1.   direct call
+//        CalendarService calendarService = Application.getApplicationContext().getBean(CalendarService.class);
+//
+//        Schedule schedule = new Schedule();
+//        schedule.setInstructorName(getInstructorName());
+//        schedule.setDate(getStartDate());
+//        schedule.setDescription(getTitle());
+//
+//        calendarService.addCalendar(schedule);
 
-        Schedule schedule = new Schedule();
-        schedule.setInstructorName(getInstructorName());
-        schedule.setDate(getStartDate());
-        schedule.setDescription(getTitle());
+        // vesion 2.   indirect by pub / sub
 
-        calendarService.addCalendar(schedule);
+        Streams streams = Application.getApplicationContext().getBean(Streams.class);
+
+        MessageChannel messageChannel = streams.outboundChannel();
+
+        ClazzDayRegistered clazzDayRegistered = new ClazzDayRegistered();
+        clazzDayRegistered.setInstructorName(getInstructorName());
+        //clazzDayRegistered.setStartDate(getStartDate());
+
+        messageChannel.send(MessageBuilder
+                .withPayload(clazzDayRegistered)
+                .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
+                .build());
+
+        System.out.println("Event published");
+
+
     }
 
 

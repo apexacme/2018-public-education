@@ -10,7 +10,11 @@ mvn spring-boot:run -Dserver.port=8087
 (다른 창 하나 더 열기)
 cd calendar/
 mvn spring-boot:run -Dserver.port=8088
+
+
 ```
+
+
 
 
 호스트 추가
@@ -19,6 +23,8 @@ sudo vi /etc/hosts
 
 (아래 추가)
 127.0.0.1       calendar
+127.0.0.1       education-kafka-zookeeper
+127.0.0.1       education-kafka
 
 (저장)
 ```
