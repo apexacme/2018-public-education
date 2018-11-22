@@ -46,5 +46,5 @@ https://workflowy.com/s/helm/Hp7x4R4woJOpzMlA
 Kafka 설치:
 https://workflowy.com/s/running-kafka/nUnfGc7vMrkoyZSZ
 
-기타:
-
+강의 중 스크립트:
+https://workflowy.com/s/msa/27a0ioMCzlpV04Ib
