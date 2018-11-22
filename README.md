@@ -36,3 +36,15 @@ http http://localhost:8087/clazzes instructorName="장진영" title="test" cours
 
 http localhost:8088/schedules  # 기대값: 강사 장진영의 스케쥴이 하나 추가되어야 함.
 ```
+
+
+#  관련스크립트 모음:
+
+Helm 설치:
+https://workflowy.com/s/helm/Hp7x4R4woJOpzMlA
+
+Kafka 설치:
+https://workflowy.com/s/running-kafka/nUnfGc7vMrkoyZSZ
+
+기타:
+
