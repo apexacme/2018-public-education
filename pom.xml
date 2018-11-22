@@ -23,6 +23,7 @@
 
 		<module>course</module>
 		<module>calendar</module>
+		<module>marketing</module>
 
 	</modules>
 
