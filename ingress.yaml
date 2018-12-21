@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+  namespace: default
+spec:
+  rules:
+  - host: blue.example.com
+    http:
+      paths:
+      - path: /courses
+        backend:
+          serviceName: class-course
+          servicePort: 8080
+      - path: /schedules
+        backend:
+          serviceName: class-calendar
+          servicePort: 8088
+      - path: /clazzes
+        backend:
+          serviceName: class-course
+          servicePort: 8080
+  - host: green.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: class-marketing
+          servicePort: 8080
