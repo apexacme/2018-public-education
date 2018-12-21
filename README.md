@@ -1,3 +1,10 @@
+# Kubernetes 에 배포할때
+
+```
+kubectl create -f deploy.yaml
+```
+
+
 #  testing
 
 실행 
