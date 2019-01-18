@@ -10,7 +10,7 @@ metadata:
   namespace: default
 spec:
   progressDeadlineSeconds: 600
-  replicas: 5
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -38,25 +38,7 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 2
-  conditions:
-  - lastTransitionTime: 2018-12-20T05:24:04Z
-    lastUpdateTime: 2018-12-20T05:24:14Z
-    message: ReplicaSet "class-course-5fff4696bd" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: 2018-12-21T00:37:45Z
-    lastUpdateTime: 2018-12-21T00:37:45Z
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 4
-  readyReplicas: 2
-  replicas: 2
-  updatedReplicas: 2
+
 
 ---
 
@@ -104,22 +86,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: 2018-12-20T06:28:48Z
-    lastUpdateTime: 2018-12-20T06:28:48Z
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: 2018-12-20T06:28:48Z
-    lastUpdateTime: 2018-12-20T06:29:00Z
-    message: ReplicaSet "class-calendar-b9fd898b7" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 1
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
